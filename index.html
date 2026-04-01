@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Van Subaru Finance Tool</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="header card">
+      <div class="brand">
+        <img src="./logo.png" alt="Van Subaru logo" class="logo">
+        <div>
+          <h1>Van Subaru of North Kansas City</h1>
+          <p>Real Cost vs Tax-Adjusted Cost</p>
+        </div>
+      </div>
+      <button id="closeModeBtn" class="btn">Close Mode</button>
+    </header>
+
+    <section class="card">
+      <h2>Base Deal</h2>
+
+      <div class="field">
+        <div class="row">
+          <label for="salesPrice">Sales Price</label>
+          <strong id="salesPriceValue">$35,000</strong>
+        </div>
+        <input id="salesPrice" type="range" min="0" max="100000" step="500" value="35000">
+      </div>
+
+      <div class="field grid-2">
+        <div>
+          <div class="row">
+            <label for="salesPriceInput">Edit Sales Price</label>
+          </div>
+          <input id="salesPriceInput" class="money-input" type="number" min="0" step="100" value="35000">
+        </div>
+        <div>
+          <div class="row">
+            <label for="moneyDownInput">Money Down</label>
+            <strong id="moneyDownValue">$5,000</strong>
+          </div>
+          <input id="moneyDownInput" class="money-input" type="number" min="0" step="100" value="5000">
+        </div>
+      </div>
+
+      <div class="field grid-2">
+        <div>
+          <div class="row">
+            <label for="aprInput">APR</label>
+            <strong id="aprValue">9.99%</strong>
+          </div>
+          <input id="aprInput" class="money-input" type="number" min="0" max="30" step="0.01" value="9.99">
+        </div>
+        <div class="total-financed-box">
+          <div class="row">
+            <label>Total Amount Financed</label>
+            <strong id="amountFinancedValue">$30,000</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="row">
+          <label for="taxRate">Tax Rate</label>
+          <strong id="taxRateValue">20%</strong>
+        </div>
+        <input id="taxRate" type="range" min="10" max="40" step="1" value="20">
+      </div>
+
+      <div class="field">
+        <div class="row">
+          <label>Loan Term</label>
+          <strong id="termValue">60 months</strong>
+        </div>
+        <div class="term-buttons" id="termButtons"></div>
+      </div>
+
+      <div class="field">
+        <div class="row">
+          <label for="customTerm">Edit Loan Term</label>
+        </div>
+        <input id="customTerm" class="money-input" type="number" min="1" max="120" step="1" value="60">
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Add Protection Products</h2>
+
+      <div class="field">
+        <div class="row">
+          <label for="vsc">VSC (Service Contract)</label>
+          <strong id="vscValue">$0</strong>
+        </div>
+        <input id="vsc" type="range" min="0" max="9000" step="100" value="0">
+      </div>
+
+      <div class="field">
+        <div class="row">
+          <label for="gap">GAP</label>
+          <strong id="gapValue">$490</strong>
+        </div>
+        <input id="gap" type="range" min="490" max="1295" step="5" value="490">
+      </div>
+
+      <div class="field">
+        <div class="row">
+          <label for="club">CLUB PLUS</label>
+          <strong id="clubValue">$0</strong>
+        </div>
+        <div class="subnote">Tire &amp; Wheel, Dent &amp; Ding, Windshield, Keyfob</div>
+        <input id="club" type="range" min="0" max="2420" step="5" value="0">
+      </div>
+
+      <div class="field">
+        <div class="row">
+          <label for="maintenance">Maintenance</label>
+          <strong id="maintenanceValue">$945</strong>
+        </div>
+        <input id="maintenance" type="range" min="945" max="1930" step="1" value="945">
+        <div class="preset-buttons" id="maintenanceButtons"></div>
+      </div>
+
+      <div class="field">
+        <div class="row">
+          <label for="paint">Paint &amp; Interior Protection</label>
+          <strong id="paintValue">$0</strong>
+        </div>
+        <input id="paint" type="range" min="0" max="1288" step="4" value="0">
+      </div>
+    </section>
+
+    <section class="comparison">
+      <div class="card comparison-card">
+        <h2>Base Deal</h2>
+        <div class="metric"><span>Sales Price</span><strong id="baseSalesPrice">$35,000</strong></div>
+        <div class="metric"><span>Money Down</span><strong id="baseMoneyDown">$5,000</strong></div>
+        <div class="metric"><span>APR</span><strong id="baseApr">9.99%</strong></div>
+        <div class="metric"><span>Amount Financed</span><strong id="baseAmountFinanced">$30,000</strong></div>
+        <div class="metric"><span>Estimated Tax Savings</span><strong id="baseTax">$6,000</strong></div>
+        <div class="metric total"><span>Adjusted Net</span><strong id="baseNet">$24,000</strong></div>
+      </div>
+
+      <div class="card comparison-card highlight">
+        <h2>With Products</h2>
+        <div class="metric"><span>Products Added</span><strong id="productsTotal">$0</strong></div>
+        <div class="metric"><span>Total Financed</span><strong id="fullAmountFinanced">$30,000</strong></div>
+        <div class="metric"><span>APR</span><strong id="fullApr">9.99%</strong></div>
+        <div class="metric"><span>Estimated Tax Savings</span><strong id="fullTax">$6,000</strong></div>
+        <div class="metric total"><span>Adjusted Net</span><strong id="fullNet">$24,000</strong></div>
+      </div>
+    </section>
+
+    <section class="card payoff">
+      <p class="eyebrow">Estimated Monthly Payment</p>
+      <div class="big-number" id="monthlyImpact">$637.46 / mo</div>
+      <p class="muted" id="monthlyTerm">At 9.99% APR for 60 months</p>
+    </section>
+
+    <footer class="footer">
+      Estimated potential tax benefit. Customer should consult a tax professional.
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
